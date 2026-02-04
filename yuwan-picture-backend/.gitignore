@@ -1,0 +1,28 @@
+# Maven generated files
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Sensitive configuration files
+**/application-local.yml
+**/application-prod.yml
+config/
+secrets/
+
+# Environment specific settings
+.env
+.env.local
+.env.production
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db

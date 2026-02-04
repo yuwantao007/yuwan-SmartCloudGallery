@@ -3,6 +3,10 @@ server:
   servlet:
     context-path: /api
 spring:
+  # 激活环境配置
+  profiles:
+    active: local
+
   application:
     name: yuwan-picture-backend
     #数据库配置
@@ -11,9 +15,13 @@ spring:
     url: jdbc:mysql://localhost:3306/yuwan_picture?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+  # 开放更大的文件上传体积
+  servlet:
+    multipart:
+      max-file-size: 10MB
+#MyBatis配置
 mybatis-plus:
   configuration:
-    #MyBatis配置
     map-underscore-to-camel-case: false  # 开启驼峰命名转换
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     global-config:
