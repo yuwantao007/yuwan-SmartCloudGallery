@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import UserLoginPage from '@/page/user/UserLoginPage.vue'
 import UserManagePage from '@/page/admin/UserManagePage.vue'
 import UserRegisterPage from '@/page/user/UserRegisterPage.vue'
 import ACCESS_ENUM from '@/access/accessEnum.ts'
 import NoAuth from '@/components/NoAuth.vue'
+import HomePage from '@/page/HomePage.vue'
+import AddPicturePage from '@/page/AddPicturePage.vue'
+import PictureManagePage from '@/page/admin/PictureManagePage.vue'
+import PictureDetailPage from '@/page/PictureDetailPage.vue'
 
 
 const router = createRouter({
@@ -13,7 +16,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: HomePage,
       meta: {
         hideInMenu: false,
       },
@@ -26,6 +29,15 @@ const router = createRouter({
         hideInMenu: true,
       },
     },
+    {
+      path: '/add_picture',
+      name: '创建图片',
+      component: AddPicturePage,
+      meta: {
+        access: ACCESS_ENUM.ADMIN,
+      },
+    },
+
     {
       path: '/user/register',
       name: 'user register',
@@ -43,15 +55,18 @@ const router = createRouter({
       },
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/admin/pictureManage',
+      name: '图片管理',
+      component: PictureManagePage,
       meta: {
-        hideInMenu: false,
+        access: ACCESS_ENUM.ADMIN,
       },
+    },
+    {
+      path: '/picture/:id',
+      name: '图片详情',
+      component: PictureDetailPage,
+      props: true,
     },
     {
       path: '/noAuth',

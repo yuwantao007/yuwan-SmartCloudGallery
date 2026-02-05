@@ -1,0 +1,17 @@
+# Maven构建目录
+target/
+build/
+out/
+
+# IDE配置
+.idea/
+*.iml
+.vscode/
+
+# 本地配置文件（敏感信息）
+application-local.yml
+**/application-dev.yml
+
+# 日志
+*.log
+logs/

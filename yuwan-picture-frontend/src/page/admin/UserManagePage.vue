@@ -154,4 +154,6 @@ const doDelete = async (id: string) => {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
