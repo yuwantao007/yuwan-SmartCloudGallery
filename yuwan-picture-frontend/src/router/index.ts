@@ -8,6 +8,7 @@ import HomePage from '@/page/HomePage.vue'
 import AddPicturePage from '@/page/AddPicturePage.vue'
 import PictureManagePage from '@/page/admin/PictureManagePage.vue'
 import PictureDetailPage from '@/page/PictureDetailPage.vue'
+import AddPictureBatchPage from '@/page/AddPictureBatchPage.vue'
 
 
 const router = createRouter({
@@ -67,6 +68,14 @@ const router = createRouter({
       name: '图片详情',
       component: PictureDetailPage,
       props: true,
+    },
+    {
+      path: '/add_picture/batch',
+      name: '批量创建图片',
+      component: AddPictureBatchPage,
+      meta: {
+        access: ACCESS_ENUM.ADMIN,
+      },
     },
     {
       path: '/noAuth',
